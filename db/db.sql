@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS got_gear;
+CREATE DATABASE got_gear;
+USE got_gear;
