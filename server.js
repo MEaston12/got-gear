@@ -1,9 +1,11 @@
 require('dotenv').config();
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const routes = require('./routes');
 const sequelize = require('./config/connection');
+const sass = require('sass');
 const app = express();
 const PORT = process.env.PORT||3001;
 
@@ -18,6 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
 app.use(routes);
+
+const stylePath = './public/stylesheets/style.css';
+const sassPath = './sass/style.sass';
+fs.writeFileSync(stylePath, sass.renderSync({file: sassPath}).css);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
