@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-require('dotenv').config();
+const DB_NAME = 'got_gear_db';
 
 // Create connection to our databse using mysql info.
 let sequelize;
