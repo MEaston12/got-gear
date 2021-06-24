@@ -2,6 +2,7 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const express = require('express');
+const exphbs  = require('express-handlebars');
 const path = require('path');
 const routes = require('./routes');
 const sequelize = require('./config/connection');
@@ -11,7 +12,8 @@ const PORT = process.env.PORT||3001;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 app.use(cookieParser());
 
