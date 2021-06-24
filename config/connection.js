@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
-require('dotenv').config();
+const DB_NAME = 'got_gear_db';
 
 // Create connection to our databse using mysql info.
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
-    host: 'localhost',
+const sequelize = new Sequelize(DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+    host: process.env.DB_ADDRESS || 'localhost',
     dialect: 'mysql',
-    port: 3306
+    port: process.env.DB_PORT || 3306
 });
 
 module.exports = sequelize;
