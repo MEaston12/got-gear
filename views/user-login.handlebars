@@ -2,28 +2,19 @@
     <h1>Welcome to Got Gear</h1>
     <p>Please login to continue</p>
     <main>
-        <form action="action_page.php" method="post">
-  <div class="imgcontainer">
-    <img src="/images/user-icon.png" alt="Avatar" class="avatar">
+<form class="login-form">
+  <div>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
   </div>
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+  <div>
+    <label for="password-login">password:</label>
+    <input type="password" id="password-login" />
   </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  <div>
+    <button type="submit">login</button>
   </div>
 </form>
-    </main>
+    <button type="button" id="create-account" class="btn1">Create Account</button>
+<script src="/javascript/login.js"></script>
 </body>
