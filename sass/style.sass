@@ -1,35 +1,7 @@
 @import "./bootstrap.sass"
+@import "./variables.sass"
 
 //Custom styling independent of bootstrap goes here.
-
-  $theme-colors-spring: (
-  "primary": #cad2c5,
-  "secondary": #84a98c,
-  "teriary": #52796f,
-  "quaternary": #354f52,
-  "quinary": #2f3e46
-)
-  $theme-colors-fall: (
-  "primary": #e4d6a7,
-  "secondary": #ef6f6c,
-  "teriary": #e9b44c,
-  "quaternary": #9b2915,
-  "quinary": #1c110a
-)
-  $theme-colors-winter: (
-  "primary": #fdffff,
-  "secondary": #d496a7,
-  "teriary": #657ed4,
-  "quaternary": #009e7f,
-  "quinary": #1a181b
-)
-  $theme-colors-summer: (
-  "primary": #dfd9e2,
-  "secondary": #f9dc5c,
-  "teriary": #3185fc,
-  "quaternary": #2a7f62,
-  "quinary": #222a68
-)
 
 * 
   margin: 0
@@ -38,13 +10,14 @@
 
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  height
 
 a
-  color: #00B7FF
+  color: $teriary-summer
 
 header 
   padding: 20px 20px
-  background-color: #000000
+  background-color: $quinary-summer
   display: flex
   justify-content: space-between
   width: 100%
@@ -57,13 +30,13 @@ header
   h1 
     font-weight: bold
     font-size: 36px
-    color: #8c8c97
+    color: $primary-summer
     margin: 0 
     align-self: center
 
 
   a 
-    color: #8c8c97
+    color: $primary-summer
     text-decoration: none 
 
   nav 
@@ -80,4 +53,24 @@ header
       margin: 0 30px
       font-weight: lighter
       font-size: 1.55vw
-    
+
+footer
+  padding: 20px 20px
+  background-color: $quaternary-summer
+  display: flex
+  justify-content: space-between
+  width: 100%
+  height: 100px
+  align-items: stretch
+  flex-direction: column
+
+footer
+  font-weight: bold
+  font-size: 16px
+  color: $primary-summer
+  margin: 0 
+  align-items: center
+  position:absolute
+  bottom:0
+  width:100%
+  height:60px
