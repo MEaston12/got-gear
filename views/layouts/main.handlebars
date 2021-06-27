@@ -1,19 +1,28 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Got Gear</title>
-    <link rel="favicon" type="image/jpg" href="/images/camping.jpg">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
+    <link rel="favicon" type="image/jpg" href="/images/camping.jpg" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav>
+      {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">logout</button>
+      {{else}}
+        <a href="/login">login</a>
+      {{/if}}
+    </nav>
 
-    {{{ body }}}
-    
-</body>
-<footer>
-        <p>Created by Team Got Gear</p>
-    </footer>
+    {{{body}}}
+
+    {{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+  </body>
+  <footer>
+    <p>Created by Team Got Gear</p>
+  </footer>
 </html>
