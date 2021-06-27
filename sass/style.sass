@@ -10,7 +10,7 @@
 
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  height
+  height: 100%
 
 a
   color: $teriary-summer
@@ -29,7 +29,7 @@ header
 header 
   h1 
     font-weight: bold
-    font-size: 36px
+    font-size: 2vw 
     color: $primary-summer
     margin: 0 
     align-self: center
@@ -52,7 +52,7 @@ header
     li a
       margin: 0 30px
       font-weight: lighter
-      font-size: 1.55vw
+      font-size: 1vw
 
 footer
   padding: 20px 20px
@@ -70,7 +70,61 @@ footer
   color: $primary-summer
   margin: 0 
   align-items: center
-  position:absolute
+  position: absolute
   bottom:0
   width:100%
   height:60px
+
+  .welcome-body 
+    display: grid
+    grid-template-areas: "hero"
+    height: 60vh
+    max-height: 600px
+    place-items: center
+    background-color: rgba($secondary-summer, 0.7)
+
+    *
+      grid-area: hero
+    
+    .hero__content 
+      z-index: 1
+
+    img 
+      object-fit: cover
+      height: min(60vh, 600px)
+      width: 100%
+      z-index: -1
+
+    .button 
+      font-size: 1.25rem
+      font-weight: 500
+      text-decoration: none
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      align-self: start
+      background-color: #fff
+      color: $secondary
+      border-radius: 8px
+      box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3)
+      padding: 0.25em 0.75em
+      min-width: 10ch
+      min-height: 44px
+      text-align: center
+      line-height: 1.1
+      transition: 220ms all ease-in-out
+
+
+
+
+
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+@include media-breakpoint-up(sm)
+
+@include media-breakpoint-up(md) 
+
+@include media-breakpoint-up(lg) 
+
+@include media-breakpoint-up(xl) 
+
+@include media-breakpoint-up(xxl) 
