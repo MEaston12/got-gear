@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const {Op} = require('sequelize');
 const {Gear, Tag} = require('../../models');
 
 // GET /api/gear/:user_id
