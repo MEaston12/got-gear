@@ -1,5 +1,45 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Gear } = require('../../models');
+
+router.get('/:id/gearbag', async (req, res) => {
+    try {
+        const gearBag = await Gear.findAll({
+            include: {
+                model: User,
+                where: {id: req.params.id},
+                attributes: [],
+                
+            },
+            attributes: {
+                exclude: [
+                    'createdAt',
+                    'updatedAt'
+                ]
+            }
+        });
+        res.json(gearBag);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.put('/:id/gearbag', async (req, res) => {
+    try {
+        // Expecting a body with {gear: [1, 2, 3]}, should contain all the gear_ids associated with user
+        const {gear} = req.body;
+        const user = await User.findOne({
+            attributes: {exclude: ['password']},
+            where: {id: req.params.id}
+        });
+        const gearBag = await Gear.findAll({where: {id:gear}}); //need to generate an array of tags to associate with this object
+        await user.setGears(gearBag);
+        res.json(gearBag);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 // GET /api/users
 router.get('/', (req,res) => {
