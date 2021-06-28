@@ -28,13 +28,17 @@ header
 
 header
   .logo-black
-    display: block
-    height: 90px
-    width: 150px
+    display: flex
+    height: 130px
+    width: 225px
     position: absolute
-    margin-left: 90% 
-    margin-top: -20px
-    content: url(../images/basic-got-gear-logo.png)
+    margin-left: 30%
+    margin-top: -30px
+    content: url(../images/basic-got-gear-logo-white.png)
+
+    @media screen and (max-width: $medium) 
+      margin: 50%
+      margin-top: -20px
 
   h1 
     font-weight: bold
@@ -42,6 +46,10 @@ header
     color: $primary-summer
     margin: 0 
     align-self: center
+
+    @media screen and (max-width: $medium) 
+      font-size: 0vw
+  
 
   a 
     color: $primary-summer
