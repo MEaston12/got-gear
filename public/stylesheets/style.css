@@ -10937,12 +10937,12 @@ footer {
   text-align: center;
 }
 
-.login-form {
+.login-form, .signup-form {
   position: relative;
   left: 120px;
 }
 @media screen and (max-width: 1000px) {
-  .login-form {
+  .login-form, .signup-form {
     left: 10px;
   }
 }
