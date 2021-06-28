@@ -1,20 +1,42 @@
 <body>
-    <h1>Welcome to Got Gear</h1>
-    <p>Please login to continue</p>
-    <main>
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
-    <button type="button" id="create-account" class="btn1">Create Account</button>
+  <div class="hero-content">
+    <h1 class="display-1">Welcome to Got Gear</h1>
+    <p class="display-4">Please login to continue</p>
+
+<div class="container-fluid">
+  <div class="row">
+            <!-- Col 1 -->
+            <div class="col-sm-3">
+            </div>
+            <!-- Col 2 -->
+            <div class="col-sm-6">
+  <form class="login-form">
+    <div class="form-group">
+      <label for="email-login"><b>email:</b></label>
+      <input type="text" class="form-control" placeholder="Enter Email" id="email-login" />
+    </div>
+    
+      <div class="form-group">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="psw"><b>Password</b></label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
+      </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="button" id="create-account" class="btn btn-primary">Create Account</button>
+    <div class="form-check">
+      <label class="remember-me">
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  </form>
+            </div>
+</div>
+
 <script src="/javascript/login.js"></script>
+</main>
 </body>

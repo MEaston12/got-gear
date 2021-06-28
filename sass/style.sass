@@ -1,9 +1,205 @@
 @import "./bootstrap.sass"
+@import "./variables.sass"
 
 //Custom styling independent of bootstrap goes here.
+
+* 
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
 body
-  padding: 50px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  height: 100%
 
 a
-  color: #00B7FF
+  color: $teriary-summer
+
+header 
+  padding: 20px 20px
+  background-color: $quinary-summer
+  display: flex
+  justify-content: space-between
+  min-width: 100%
+  height: 100px
+  align-items: stretch
+  flex-direction: column
+  border-bottom: 2px solid black
+
+  @media screen and (max-width: $medium) 
+      min-width: 100%
+
+header
+  .logo-black
+    display: flex
+    height: 130px
+    width: 225px
+    position: absolute
+    margin-left: 30%
+    margin-top: -30px
+    content: url(../images/basic-got-gear-logo-white.png)
+
+    @media screen and (max-width: $medium) 
+      margin: 50%
+      margin-top: -20px
+
+  h1 
+    font-weight: bold
+    font-size: 2vw 
+    color: $primary-summer
+    margin: 0 
+    align-self: center
+
+    @media screen and (max-width: $medium) 
+      font-size: 0vw
+  
+
+  a 
+    color: $primary-summer
+    text-decoration: none 
+
+  nav 
+    margin: 10px 0
+
+    ul
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: center
+      list-style: none
+
+    li a
+      margin: 0 30px
+      font-weight: lighter
+      font-size: 1vw
+
+footer
+  padding: 20px 20px
+  background-color: $quaternary-summer
+  display: flex
+  justify-content: space-between
+  width: 100%
+  height: 100px
+  align-items: stretch
+  flex-direction: column
+
+footer
+  font-weight: bold
+  font-size: 16px
+  color: $primary-summer
+  margin: 0 
+  align-items: center
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  width:100%
+  height:60px
+  border-top: 2px solid black
+
+@function svgColor($color)
+  @return "%23" + str-slice("#{$color}", 2, -1)
+
+.welcome-body 
+  display: grid
+  grid-template-areas: "hero"
+  height: 100%
+  place-items: center
+  background-color: rgba($quinary-fall, 0.4)
+  overflow: hidden
+
+  &::before
+      content: ""
+      grid-area: hero
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      background: url("../public/images/camping.jpg")
+      background-position: 0 -450px
+      z-index: -1 
+
+  &::after 
+    content: ""
+    grid-area: hero
+    width: 100%
+    height: 100%
+    background: url("../images/camping.jpg")
+    background-repeat: no-repeat
+    background-position: 0 -450px
+    z-index: -1
+
+  > *
+    grid-area: hero
+    
+  img 
+    object-fit: cover
+    height: min(60vh, 600px)
+    width: 100%
+    z-index: -1  
+
+  .hero-content 
+    z-index: 9
+    color: $primary-summer
+    margin-left: 40px
+    text-align: center
+  
+    h1
+      font-size: 4rem
+      font-weight: 500
+      margin: 0 0 1rem
+
+    p 
+      font-size: 2.75rem
+
+  .button 
+    font-size: 1.25rem
+    font-weight: 500
+    text-decoration: none
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    align-self: start
+    background-color: $primary-summer
+    color: $quaternary-summer
+    border-radius: 8px
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3)
+    padding: 0.25em 0.75em
+    min-width: 10ch
+    min-height: 44px
+    text-align: center
+    line-height: 1.1
+    transition: 220ms all ease-in-out
+
+    &:hover,
+    &:active 
+      background-color: scale-color($quaternary-summer, $lightness: 90%)
+
+    &:focus
+      outline-style: solid
+      outline-color: transparent
+      box-shadow: 0 0 0 4px scale-color($quaternary-summer, $lightness: 50%)
+
+  *
+    box-sizing: border-box
+
+  body
+    min-height: 100vh
+    font-family: "Baloo 2", sans-serif
+
+
+.display-1, .display-4
+  text-align: center
+
+
+.login-form
+  position: relative
+  left: 120px
+
+  @media screen and (max-width: $medium) 
+      left: 10px
+
+.form-group
+  margin-bottom: 30px
+
+button
+  margin-bottom: 20px
