@@ -12,16 +12,13 @@ Gear.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
         name: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         desc: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2047),
             allowNull: false
         }
     },
