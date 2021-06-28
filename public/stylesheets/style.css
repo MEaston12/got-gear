@@ -10766,11 +10766,16 @@ header {
   background-color: #222a68;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  min-width: 100%;
   height: 100px;
   align-items: stretch;
   flex-direction: column;
   border-bottom: 2px solid black;
+}
+@media screen and (max-width: 1000px) {
+  header {
+    min-width: 100%;
+  }
 }
 
 header .logo-black {
@@ -10837,7 +10842,9 @@ footer {
   color: #dfd9e2;
   margin: 0;
   align-items: center;
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   height: 60px;
@@ -10928,4 +10935,26 @@ footer {
 .welcome-body body {
   min-height: 100vh;
   font-family: "Baloo 2", sans-serif;
+}
+
+.display-1, .display-4 {
+  text-align: center;
+}
+
+.login-form {
+  position: relative;
+  left: 120px;
+}
+@media screen and (max-width: 1000px) {
+  .login-form {
+    left: 10px;
+  }
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+button {
+  margin-bottom: 20px;
 }

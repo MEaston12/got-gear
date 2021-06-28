@@ -20,11 +20,14 @@ header
   background-color: $quinary-summer
   display: flex
   justify-content: space-between
-  width: 100%
+  min-width: 100%
   height: 100px
   align-items: stretch
   flex-direction: column
   border-bottom: 2px solid black
+
+  @media screen and (max-width: $medium) 
+      min-width: 100%
 
 header
   .logo-black
@@ -86,8 +89,10 @@ footer
   color: $primary-summer
   margin: 0 
   align-items: center
-  position: relative
-  bottom:0
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
   width:100%
   height:60px
   border-top: 2px solid black
@@ -180,3 +185,21 @@ footer
   body
     min-height: 100vh
     font-family: "Baloo 2", sans-serif
+
+
+.display-1, .display-4
+  text-align: center
+
+
+.login-form
+  position: relative
+  left: 120px
+
+  @media screen and (max-width: $medium) 
+      left: 10px
+
+.form-group
+  margin-bottom: 30px
+
+button
+  margin-bottom: 20px
