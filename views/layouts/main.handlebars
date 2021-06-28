@@ -1,49 +1,32 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Got Gear</title>
-    <link rel="favicon" type="image/jpg" href="/images/camping.jpg">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-
-    <header>
-        <h1 class="title">Welcome to Go Gear!</h1>
-
+    <link rel="favicon" type="image/jpg" href="/images/camping.jpg" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+      <header>
+        <img class="logo-black" src="../../public/images/basic-got-gear-logo.png" alt="logo"/>
+        <h1 class="title">Got Gear!</h1>
     <nav>
-        <ul>
-                <li>
-                    <a href="#sample-1">Sample-1</a>
-                </li>
-
-                <li>
-                    <a href="#Sample-2">Sample-2</a>
-                </li>
-
-                <li>
-                    <a href="#Sample-3">Sample-3</a>
-                </li>
-            </ul>
+      {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">logout</button>
+      {{else}}
+        <a href="/login">login</a>
+      {{/if}}
     </nav>
-
     </header>
 
-    <main>
-        <header class="article-title">Have you 'Got Gear'?</header>
+    {{{body}}}
 
-        <section></section>
-    </main>
-
-    <div class="side-bar">
-        <aside></aside>
-    </div>
-
-    <footer>
-        <p>Created by Team Got Gear</p>
-    </footer>
-    
-</body>
+    {{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+  </body>
+  <footer>
+    <p>Created by Team Got Gear &trade;</p>
+  </footer>
 </html>
