@@ -3,9 +3,10 @@
     <h1>Welcome to Got Gear</h1>
     <p>Please login to continue</p>
     <main>
-        <form action="action_page.php" method="post">
-  <div class="imgcontainer">
-    <img src="/images/user-icon.png" alt="Avatar" class="avatar">
+<form class="login-form">
+  <div>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
   </div>
 <div class="form-group">
   <div class="form-group">
@@ -26,12 +27,12 @@
     </div>
     
   </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  <div>
+    <button type="submit">login</button>
   </div>
 </form>
     </main>
   </div>
+    <button type="button" id="create-account" class="btn1">Create Account</button>
+<script src="/javascript/login.js"></script>
 </body>
