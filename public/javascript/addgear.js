@@ -35,4 +35,4 @@ async function addGearHandler(event) {
 
 }
 
-document.querySelector('#add-gear').addEventListener('submit', addGearHandler);
+document.querySelector('#add-gear').addEventListener('click', addGearHandler);

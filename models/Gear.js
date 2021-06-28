@@ -20,14 +20,6 @@ Gear.init(
         desc: {
             type: DataTypes.STRING(2047),
             allowNull: false
-        },
-        tags: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'tag',
-                key: 'id'
-            }
         }
     },
     {

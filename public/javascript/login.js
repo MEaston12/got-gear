@@ -9,7 +9,8 @@ async function loginFormHandler(event) {
             method: 'post',
             body: JSON.stringify({
                 email,
-                password
+                password,
+                username
             }),
             headers: { 'Content-Type': 'application/json' }
         });
@@ -21,10 +22,9 @@ async function loginFormHandler(event) {
             alert(response.statusText);
         }
     }
-
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('#login').addEventListener('click', loginFormHandler);
 
 function newUser(event){
     event.preventDefault();
