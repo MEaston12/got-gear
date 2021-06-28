@@ -18,7 +18,7 @@ Gear.init(
             allowNull: false
         },
         desc: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2047),
             allowNull: false
         }
     },
