@@ -1,58 +1,56 @@
 const router = require('express').Router();
-const {Gear, Tag} = require('../../models');
+const { Gear, Tag } = require('../../models');
 
-// GET /api/gear/:user_id
-router.get('/:user_id', async (req, res) => {
-    //route should return a json of all the user's registered gear
-    const user_id = parseInt(req.params.user_id);
-    res.json(await Gear.findAll({
-        where: {
-            user_id: user_id
-        }
-    }));
+// GET /api/gear/
+router.get('/', async (req, res) => {
+    //route should return a json of all known gear
+    res.json(await Gear.findAll({}));
 });
 
-// POST /api/gear/:user_id
-router.post('/:user_id', async (req, res) => {
-    // Expects a data format {user_id: 'megauser123' ,name: 'Tent', desc: 'Keeps the outside out and the inside in.', tags: [1,2,3]}
-    const user_id = req.params.user_id;
+// GET /api/gear/:gear_id
+router.get('/:gear_id', async (req, res) => {
+    //route should return a json of all known gear
+    const gear_id = req.params.gear_id;
+    res.json(await Gear.findOne({where:{id:gear_id}}));
+});
+
+// POST /api/gear/
+router.post('/', async (req, res) => {
+    // Expects a data format {name: 'Tent', desc: 'Keeps the outside out and the inside in.', tags: [1,2,3]}
     const {name, desc, tags} = req.body; //destructuring magic
     const gear = await Gear.create({
-        user_id: user_id,
         name: name,
         desc: desc
     });
-    res.json(await updateGear(gear, user_id, name, desc, tags));
+    res.json(await updateGear(gear, name, desc, tags));
 });
 
-// PUT /api/gear/:user_id
-router.put('/:user_id', async (req, res) => {
-    // If req.body has exact key/value pairs to match the model, you can just use the 'req.body' instead
-    const user_id = req.params.user_id;
-    const {gear_id, name, desc, tags} = req.body; //destructuring magic - tags is meant to be an array of tag ids to associate with the gear
+// PUT /api/gear/:gear_id
+router.put('/:gear_id', async (req, res) => {
+    // Expects a data format {name: 'Tent', desc: 'Keeps the outside out and the inside in.', tags: [1,2,3]}
+    //   If any of these elements are missing in the body, they are not modified.
+    const gear_id = req.params.gear_id;
+    const {name, desc, tags} = req.body; //destructuring magic - tags is meant to be an array of tag ids to associate with the gear
     const gear = await Gear.findOne({where: {id:gear_id}}); //saving the piece of gear we're updating to an instance
-    res.json(await updateGear(gear, user_id, name, desc, tags));
+    res.json(await updateGear(gear, name, desc, tags));
 });
 
-// DELETE /api/gear/:user_id
-router.delete('/:user_id', async (req, res) => {
-    const {gear_id} = req.body;
-    res.json(await Gear.destroy({
-        where: {
-            user_id: req.params.user_id,
-            id: gear_id
-        }
-    }));
+// DELETE /api/gear/:gear_id
+router.delete('/:gear_id', async (req, res) => {
+    const {gear_id} = req.params.gear_id;
+    res.json(await Gear.destroy({where: {id: gear_id}}));
 });
 
-async function updateGear(gear, user_id, name, desc, tags){
-    const myTags = await Tag.findAll({where: {id:tags}}); //need to generate an array of tags to associate with this object
-    await gear.update({
-        user_id: user_id, 
-        name: name,
-        desc: desc
-    });
-    await gear.setTags(myTags);
+async function updateGear(gear, name, desc, tags){
+    //This function should update any attribute that comes in through the parameters and not overwrite anything else.
+    const update = {};
+    if(name) update.name = name;
+    if(desc) update.desc = desc;
+    if(Object.keys(update).length) await gear.update(update);
+    if(tags){
+        const gearTags = await Tag.findAll({where: {id:tags}}); //need to generate an array of tags to associate with this object
+        await gear.setTags(gearTags);
+    }
     return gear;
 }
 
