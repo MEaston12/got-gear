@@ -7,8 +7,7 @@ router.get('/:id/gearbag', async (req, res) => {
             include: {
                 model: User,
                 where: {id: req.params.id},
-                attributes: [],
-                
+                attributes: []
             },
             attributes: {
                 exclude: [
