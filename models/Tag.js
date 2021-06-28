@@ -17,10 +17,10 @@ Tag.init(
             unique: true,
             allowNull: false
         },
-        desc: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+        // desc: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // }
     },
     {
         // Table config goes here

@@ -22,40 +22,30 @@ router.get('/login', (req, res) => {
     res.render('signup', { title: 'signup' });
   });
   
-  router.get('/gearbag', (req, res) => {
-    // console.log(req.session);
+  router.get('/gearbag', async (req, res) => {
+    try {
+      console.log(req.session.user_id);
+      const gear = await Gear.findAll({
+        where: {
+          user_id: req.session.user_id
+        },
+        attributes: [
+          'name',
+          'desc',
+        ],
+      })
 
-    // const user = User.findOne({
-    //   attributes: { exclude: ['password'] },
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // })
-    User.findAll({
-    //   attributes: [
-    //     'name',
-    //     'desc'
-    //   ],
-    //   where: {
-    //       id: req.params.id
-    //   },
-    //   include: [
-    //     {model: User,
-    //     attributes: ['username']
-    //     }
-    //   ]
-    })
-    .then(dbGearData => {
-      // const gear = dbGearData.map(gear => gear.get({ plain: true }));
-      // render details based on session
-      res.render('gear', { 
-          title: 'Gear Bag',
-          Username: req.session.username,
-          // gear,
-          loggedIn: req.session.loggedIn,
-     });
-    })
-    .catch(err => {res.status(500).json(err)});
+        res.render('gear', { 
+            title: 'Gear Bag',
+            Username: req.session.username,
+            Gearbag: gear, 
+            loggedIn: req.session.loggedIn,
+       });
+    }
+    catch (err){
+      console.log(err);
+      res.status(500).json(err);
+    }
   });
 
 

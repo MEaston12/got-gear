@@ -1,18 +1,25 @@
-<h1>{{{Username}}}'s Gearbag</h1>
+<h1>{{{ Username }}}'s Gearbag</h1>
 <div class="gear-body">
     <form action="/action_page.php">
     <label for="iname">Name of item:</label><br>
     <input type="text" id="name" name="name"><br>
     <label for="description">Item Description:</label><br>
     <input type="text" id="desc" name="desc"><br><br>
-    <label for="tags">Item Tags:</label><br>
-    <input type="text" id="tags" name="tags"><br><br>
+    <input type="radio" id="campsite" name="tag" value="Campsite">
+    <label for="campsite">Campsite</label><br>
+    <input type="radio" id="tools" name="tag" value="Tools">
+    <label for="tools">Tools + Reapirs</label><br>
+    <input type="radio" id="kitchen" name="tag" value="Kitchen">
+    <label for="kitchen">Kitchen</label><br>
+    <input type="radio" id="health" name="tag" value="Health">
+    <label for="health">Health + Hygeine</label><br>
+    <button type="button" id="add-gear" class="btn1">Add Gear</button>
     </form>
 
     <div>
-        <h3>Current Gear Bag:</h3>
+        <h3>Current Gearbag:</h3>
         <ul>
-            
+            {{{ Gearbag }}}
         </ul>
     </div>
 
