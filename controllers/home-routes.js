@@ -26,11 +26,18 @@ router.get('/login', (req, res) => {
     try {
       console.log(req.session.user_id);
       const gear = await Gear.findAll({
-        attributes: [
-          'name',
-          'desc',
-        ],
-      })
+        include: {
+            model: User,
+            where: {id: req.session.user_id},
+            attributes: []
+        },
+        attributes: {
+            exclude: [
+                'createdAt',
+                'updatedAt'
+            ]
+        }
+    });
       console.log(gear);
       const updatedGear = await gear.map(gear => gear.get({ plain: true }));
       console.log(updatedGear);
