@@ -10834,15 +10834,11 @@ footer {
   height: 100px;
   align-items: stretch;
   flex-direction: column;
-}
-
-footer {
   font-weight: bold;
   font-size: 16px;
   color: #dfd9e2;
   margin: 0;
   align-items: center;
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
@@ -10866,7 +10862,7 @@ footer {
   height: 100%;
   border-radius: 50%;
   background: url("../public/images/camping.jpg");
-  background-position: 0 -450px;
+  background-position: 0 -350px;
   z-index: -1;
 }
 .welcome-body::after {
@@ -10876,7 +10872,7 @@ footer {
   height: 100%;
   background: url("../images/camping.jpg");
   background-repeat: no-repeat;
-  background-position: 0 -450px;
+  background-position: 0 -350px;
   z-index: -1;
 }
 .welcome-body > * {
@@ -10941,18 +10937,19 @@ footer {
   text-align: center;
 }
 
-.login-form {
+.login-form, .signup-form, .gear-form {
   position: relative;
   left: 120px;
 }
 @media screen and (max-width: 1000px) {
-  .login-form {
+  .login-form, .signup-form, .gear-form {
     left: 10px;
   }
 }
 
 .form-group {
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 button {
