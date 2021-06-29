@@ -10937,18 +10937,19 @@ footer {
   text-align: center;
 }
 
-.login-form, .signup-form {
+.login-form, .signup-form, .gear-form {
   position: relative;
   left: 120px;
 }
 @media screen and (max-width: 1000px) {
-  .login-form, .signup-form {
+  .login-form, .signup-form, .gear-form {
     left: 10px;
   }
 }
 
 .form-group {
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 button {
