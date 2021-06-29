@@ -10,7 +10,6 @@ async function loginFormHandler(event) {
             body: JSON.stringify({
                 email,
                 password,
-                username
             }),
             headers: { 'Content-Type': 'application/json' }
         });
@@ -22,9 +21,10 @@ async function loginFormHandler(event) {
             alert(response.statusText);
         }
     }
+
 }
 
-document.querySelector('#login').addEventListener('click', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
 function newUser(event){
     event.preventDefault();
@@ -32,4 +32,4 @@ function newUser(event){
     document.location.replace('/signup');
 }
 
-document.querySelector('#create-account').addEventListener('click', newUser);
+document.querySelector('#create-account').addEventListener('click', newUser());

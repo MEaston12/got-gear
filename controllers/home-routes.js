@@ -25,20 +25,20 @@ router.get('/login', (req, res) => {
   router.get('/gearbag', async (req, res) => {
     try {
       console.log(req.session.user_id);
-      const gear = await Gear.findAll({
-        where: {
-          user_id: req.session.user_id
-        },
-        attributes: [
-          'name',
-          'desc',
-        ],
-      })
+      // const gear = await Gear.findAll({
+      //   where: {
+      //     user_id: req.session.user_id
+      //   },
+      //   attributes: [
+      //     'name',
+      //     'desc',
+      //   ],
+      // })
 
         res.render('gear', { 
             title: 'Gear Bag',
             Username: req.session.username,
-            Gearbag: gear, 
+            // Gearbag: gear, 
             loggedIn: req.session.loggedIn,
        });
     }
