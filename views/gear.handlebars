@@ -27,7 +27,8 @@
         <ul>
         {{#each updatedGear}}
         <li>
-            {{> user-gear gear}}
+            <p>Name: {{this.name}}</p>
+            <p>Description: {{this.desc}}</p>
         </li>            
         {{/each}}
         </ul>
