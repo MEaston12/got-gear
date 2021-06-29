@@ -25,20 +25,20 @@ router.get('/login', (req, res) => {
   router.get('/gearbag', async (req, res) => {
     try {
       console.log(req.session.user_id);
-      // const gear = await Gear.findAll({
-      //   where: {
-      //     user_id: req.session.user_id
-      //   },
-      //   attributes: [
-      //     'name',
-      //     'desc',
-      //   ],
-      // })
+      const gear = await Gear.findAll({
+        attributes: [
+          'name',
+          'desc',
+        ],
+      })
+      console.log(gear);
+      const updatedGear = await gear.map(gear => gear.get({ plain: true }));
+      console.log(updatedGear);
 
         res.render('gear', { 
             title: 'Gear Bag',
             Username: req.session.username,
-            // Gearbag: gear, 
+            updatedGear, 
             loggedIn: req.session.loggedIn,
        });
     }
