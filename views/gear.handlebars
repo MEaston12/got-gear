@@ -25,7 +25,11 @@
     <div>
         <h3>Current Gearbag:</h3>
         <ul>
-            {{{ Gearbag }}}
+        {{#each updatedGear}}
+        <li>
+            {{> user-gear gear}}
+        </li>            
+        {{/each}}
         </ul>
     </div>
 
