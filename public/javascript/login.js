@@ -32,4 +32,4 @@ function newUser(event){
     document.location.replace('/signup');
 }
 
-document.querySelector('#create-account').addEventListener('click', newUser());
+document.querySelector('#create-account').addEventListener('click', newUser);
